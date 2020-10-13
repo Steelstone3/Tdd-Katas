@@ -1,0 +1,7 @@
+The string calculator must be able to take a string of numbers
+
+The string calculator must then be able to output a result to the user
+
+The string calculator must be able to add, subtract, times and divide as many values as the user enters "(2+18)^2 -  6/2 * (5 -2) " which would equal 391 for example
+
+This must be calculated in bidmas order brakets, indices, division, multiplication, addition, subtraction

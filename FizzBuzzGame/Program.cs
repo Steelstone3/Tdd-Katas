@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 
-namespace BowlingGame
+namespace FizzBuzzGame
 {
     class Program
     {

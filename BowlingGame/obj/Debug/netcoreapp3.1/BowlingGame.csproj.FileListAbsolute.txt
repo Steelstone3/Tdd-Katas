@@ -1,0 +1,13 @@
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/bin/Debug/netcoreapp3.1/BowlingGame
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/bin/Debug/netcoreapp3.1/BowlingGame.deps.json
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/bin/Debug/netcoreapp3.1/BowlingGame.runtimeconfig.json
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/bin/Debug/netcoreapp3.1/BowlingGame.runtimeconfig.dev.json
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/bin/Debug/netcoreapp3.1/BowlingGame.dll
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/bin/Debug/netcoreapp3.1/BowlingGame.pdb
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/obj/Debug/netcoreapp3.1/BowlingGame.csprojAssemblyReference.cache
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/obj/Debug/netcoreapp3.1/BowlingGame.AssemblyInfoInputs.cache
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/obj/Debug/netcoreapp3.1/BowlingGame.AssemblyInfo.cs
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/obj/Debug/netcoreapp3.1/BowlingGame.csproj.CoreCompileInputs.cache
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/obj/Debug/netcoreapp3.1/BowlingGame.dll
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/obj/Debug/netcoreapp3.1/BowlingGame.pdb
+/home/alex/Coding Projects/Tdd-Katas/BowlingGame/obj/Debug/netcoreapp3.1/BowlingGame.genruntimeconfig.cache

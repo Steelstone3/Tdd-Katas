@@ -116,7 +116,7 @@ namespace GameOfLifeTests
         }
 
         //Intergration test
-        [Fact]
+        /*[Fact]
         public void IntergrationTest()
         {
             var game = new Game()
@@ -127,6 +127,6 @@ namespace GameOfLifeTests
             game.NextGeneration();
 
             Assert.Equal(GameOfLifeTestHelper._uberEndingState1, game.GameState.State);
-        }
+        }*/
     }
 }

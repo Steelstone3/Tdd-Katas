@@ -2,6 +2,9 @@ namespace GameOfLifeTests
 {
     public static class GameOfLifeTestHelper
     {
+        //TODO AH expand out the tests to include more of each unit
+
+        //starting state
         public static bool[,] _uberStartingState1 = new bool[5, 5]
         {
             {false, false, false, true, true},
@@ -11,14 +14,16 @@ namespace GameOfLifeTests
             {false, true, false, true, false},
         };
 
-        //Need to think about end state
+        //TODO AH Need to think about end state
+
+        //ending state
         public static bool[,] _uberEndingState1 = new bool[5, 5]
         {
             {false, false, false, true, true},
-            {true, false, false, true, true},
+            {false, false, false, false, true}, //not sure here
             {false, false, false, true, false},
-            {true, false, false, true, false},
-            {false, true, false, true, false},
+            /*am sure here*/{false, false, false, false, false}, //not sure here
+            /*here*/{false, false, false, false, false},
         };
 
         //starting state
@@ -28,7 +33,7 @@ namespace GameOfLifeTests
             {false, false, false},
             {false, false, false},
         };
-
+        
         //ending state
         public static bool[,] _underPopulationEndingState1 = new bool[3, 3]
         {

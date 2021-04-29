@@ -96,7 +96,7 @@ namespace MarsRoverTests
         }
 
 
-        [Theory]
+        /*[Theory]
         //Foreach initial direction
         [InlineData('N', "LM", 1, 1, "W:0:1")]
         [InlineData('N', "ML", 1, 1, "W:1:2")]
@@ -113,7 +113,7 @@ namespace MarsRoverTests
         [InlineData('N', "RM", 9, 0, "E:1:0")]
 
         [InlineData('E', "LM", 0, 0, "N:0:0")]
-        [InlineData('E', "RM", 0, 0, "S:0:9")]
+        [InlineData('E', "RM", 0, 0, "S:0:9")]*/
         
 
 

@@ -17,6 +17,20 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
+
+    - name: Install banking app dependencies
+      working-directory: ./Bank
+      run: dotnet restore
+    - name: Build banking app
+      working-directory: ./Bank
+      run: dotnet build --configuration Release --no-restore
+    - name: Install banking app test dependencies
+      working-directory: ./BankTests
+      run: dotnet restore
+    - name: Test banking app
+      working-directory: ./BankTests
+      run: dotnet test --no-restore --verbosity normal
+
     - name: Install bowling game app dependencies
       working-directory: ./BowlingGame
       run: dotnet restore
@@ -41,4 +55,4 @@ jobs:
       run: dotnet restore
     - name: Test string calculator
       working-directory: ./StringCalculator
-      run: dotnet test --no-restore --verbosity normal 
+      run: dotnet test --no-restore --verbosity normal

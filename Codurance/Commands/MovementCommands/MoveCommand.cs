@@ -13,32 +13,11 @@ namespace Codurance.Commands.MovementCommands
                 case Direction.North:
                    return new MoveNorthCommand().ExecuteMoveCommand(orientation, positionX, positionY);
                 case Direction.East:
-                    if(positionX > 9)
-                    {
-                        return new Tuple<int, int>(0, positionY);
-                    }
-                    else
-                    {
-                        return new Tuple<int, int>(positionX + 1, positionY);
-                    }
+                    return new MoveEastCommand().ExecuteMoveCommand(orientation, positionX, positionY);
                 case Direction.South:
-                    if(positionY - 1 < 0)
-                    {
-                        return new Tuple<int, int>(positionX, 9);
-                    }
-                    else
-                    {
-                        return new Tuple<int, int>(positionX, positionY - 1);
-                    }
+                    return new MoveSouthCommand().ExecuteMoveCommand(orientation, positionX, positionY);
                 case Direction.West:
-                    if(positionX - 1 < 0)
-                    {
-                        return new Tuple<int, int>(9, positionY);
-                    }
-                    else
-                    {
-                        return new Tuple<int, int>(positionX - 1, positionY);
-                    }
+                    return new MoveWestCommand().ExecuteMoveCommand(orientation, positionX, positionY);
                 default:
                     throw new Exception();
             }

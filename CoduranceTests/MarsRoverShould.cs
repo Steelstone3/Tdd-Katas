@@ -7,18 +7,18 @@ namespace CoduranceTests
 {
     public class MarsRoverShould
     {
-        private int[,] _grid = new int[,]
+        private int[,] _grid = new int[10,10]
         {
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
             {1,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
         };
 
         private MarsRover _marsRover;
@@ -60,13 +60,28 @@ namespace CoduranceTests
         [InlineData("RM", 1, 0)]
         [InlineData("RRM", 0, 9)]
         [InlineData("LM", 9, 0)]
-        [InlineData("MMMMMMMMMMM", 0, 0)]
-        [InlineData("RMMMMMMMMMMM", 0, 0)]
+        [InlineData("MMMMMMMMMM", 0, 0)]
+        [InlineData("RMMMMMMMMMM", 0, 0)]
+        [InlineData("RRMMMMMMMMMM", 0, 0)]
+        [InlineData("LMMMMMMMMMM", 0, 0)]
         public void Move(string command, int expectedXPosition, int expectedYPosition)
         {
             _marsRover.RunCommand(command);
             Assert.Equal(expectedXPosition, _marsRover.PositionX);
             Assert.Equal(expectedYPosition, _marsRover.PositionY);
+        }
+
+        [Theory]
+        [InlineData("M", 0, 1)]
+        [InlineData("RM", 1, 0)]
+        [InlineData("RRM", 0, 9)]
+        [InlineData("LM", 9, 0)]
+        [InlineData("MMMMMMMMMM", 0, 0)]
+        [InlineData("RMMMMMMMMMM", 0, 0)]
+        public void UpdateGridPosition(string command, int expectedXPosition, int expectedYPosition)
+        {
+            _marsRover.RunCommand(command);
+            Assert.Equal((int)_marsRover.Orientation, _grid[expectedXPosition,expectedYPosition]);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Codurance.Commands.MovementCommands
     {
         public Tuple<int, int> ExecuteMoveCommand(Direction orientation, int positionX, int positionY)
         {
-            if (positionY > 9)
+            if (positionY >= 9)
             {
                 return new Tuple<int, int>(positionX, 0);
             }

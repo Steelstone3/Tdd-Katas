@@ -46,8 +46,12 @@ namespace Codurance
 
         private void UpdateCoordinates(Tuple<int,int> coordinates)
         {
+            _grid[PositionX, PositionY] = 0;
+            
             PositionX = coordinates.Item1;
             PositionY = coordinates.Item2;
+
+            _grid[PositionX, PositionY] = (int)Orientation;
         }
     }
 }

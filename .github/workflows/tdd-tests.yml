@@ -43,6 +43,19 @@ jobs:
     - name: Test bowling game
       working-directory: ./BowlingGameTests
       run: dotnet test --no-restore --verbosity normal
+
+    - name: Install codurance project dependencies
+      working-directory: ./Codurance
+      run: dotnet restore
+    - name: Build codurance project
+      working-directory: ./Codurance
+      run: dotnet build --configuration Release --no-restore
+    - name: Install codurance test dependencies
+      working-directory: ./CoduranceTests
+      run: dotnet restore
+    - name: Test codurance project
+      working-directory: ./CoduranceTests
+      run: dotnet test --no-restore --verbosity normal
       
     - name: Install string calculator app dependencies
       working-directory: ./StringCalculator

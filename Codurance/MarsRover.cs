@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Codurance.Commands;
 using Codurance.Commands.MovementCommands;
 using static Codurance.Directions.Directions;
@@ -22,7 +21,7 @@ namespace Codurance
         public int PositionY { get; private set; }
         public Direction Orientation { get; private set; }
 
-        public void RunCommand(string commandString)
+        public string RunCommand(string commandString)
         {
             foreach (var command in commandString)
             {
@@ -36,22 +35,51 @@ namespace Codurance
                         break;
                     case 'M':
                         var coordinates = new MoveCommand().ExecuteMoveCommand(Orientation, PositionX, PositionY);
-                        UpdateCoordinates(coordinates);
+                        if(UpdateCoordinates(coordinates))
+                        {
+                            return OutputResult(true);
+                        }
                         break;
                     default:
                         break;
                 }
             }
+
+            return OutputResult(false);
         }
 
-        private void UpdateCoordinates(Tuple<int,int> coordinates)
+        private bool UpdateCoordinates(Tuple<int, int> coordinates)
         {
-            _grid[PositionX, PositionY] = 0;
-            
+            if (IsObstacleHit(coordinates))
+            {
+                _grid[PositionX, PositionY] = 0;
+
+                UpdatePosition(coordinates);
+
+                _grid[PositionX, PositionY] = (int)Orientation;
+
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool IsObstacleHit(Tuple<int, int> coordinates) => _grid[coordinates.Item1, coordinates.Item2] != 5;
+
+        private void UpdatePosition(Tuple<int, int> coordinates)
+        {
             PositionX = coordinates.Item1;
             PositionY = coordinates.Item2;
+        }
 
-            _grid[PositionX, PositionY] = (int)Orientation;
+        private string OutputResult(bool isObstacleHit)
+        {
+            if(isObstacleHit)
+            {
+                return $"0:{PositionX}:{PositionY}:{Orientation}";
+            }
+            
+            return $"{PositionX}:{PositionY}:{Orientation}";
         }
     }
 }

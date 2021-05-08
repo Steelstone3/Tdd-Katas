@@ -21,6 +21,21 @@ namespace CoduranceTests
             {0,0,0,0,0,0,0,0,0,0},
         };
 
+        //Obstacles are represented as the number 5
+        private int[,] _gridObstacle = new int[10,10]
+        {
+            {1,0,5,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {5,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0},
+        };
+
         private MarsRover _marsRover;
 
         public MarsRoverShould()
@@ -82,6 +97,29 @@ namespace CoduranceTests
         {
             _marsRover.RunCommand(command);
             Assert.Equal((int)_marsRover.Orientation, _grid[expectedXPosition,expectedYPosition]);
+        }
+
+        [Theory]
+        [InlineData("M", "0:1:North")]
+        [InlineData("R", "0:0:East")]
+        [InlineData("L", "0:0:West")]
+        [InlineData("MRMR", "1:1:South")]
+        [InlineData("MLMR", "9:1:North")]
+        [InlineData("MMMM", "0:4:North")]
+        public void ProvideAFinalLocationOutput(string command, string expectedOutput)
+        {
+            var output = _marsRover.RunCommand(command);
+            Assert.Equal(expectedOutput, output);
+        }
+
+        [Theory]
+        [InlineData("MM", "0:0:1:North")]
+        [InlineData("RMM", "0:1:0:East")]
+        public void ReportAnEncounteredObstacle(string command, string expectedOutput)
+        {
+            _marsRover = new MarsRover(_gridObstacle);
+            var output = _marsRover.RunCommand(command);
+            Assert.Equal(expectedOutput, output);
         }
     }
 }

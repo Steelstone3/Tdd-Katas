@@ -1,0 +1,21 @@
+<UserControl
+    x:Class="MvvmRomanNumeral.Views.RomanNumeralConverterView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Enter numeral value:" />
+            <TextBox Text="{Binding RomanNumeral.Numeral}" />
+            <Button
+                Command="{Binding RomanNumeral.ConvertToRomanNumeralCommand}"
+                FontWeight="Bold"
+                Content="Convert To Roman Numeral" />
+        </StackPanel>
+        <!-- IsEnabled="{Binding RomanNumeral.CanConvertToRomanNumeral}" -->
+    </Grid>
+</UserControl>

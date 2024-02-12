@@ -1,0 +1,25 @@
+<Window
+    x:Class="MvvmRomanNumeral.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view_models="clr-namespace:MvvmRomanNumeral.ViewModels"
+    xmlns:views="clr-namespace:MvvmRomanNumeral.Views"
+    Title="Roman Numeral Converter"
+    MinWidth="540"
+    MinHeight="480"
+    d:DesignHeight="720"
+    d:DesignWidth="1024"
+    Icon="/Assets/icon.ico"
+    mc:Ignorable="d">
+
+    <Design.DataContext>
+        <view_models:MainWindowViewModel />
+    </Design.DataContext>
+
+    <StackPanel>
+        <views:RomanNumeralConverterView />
+        <views:NumeralConverterView />
+    </StackPanel>
+</Window>

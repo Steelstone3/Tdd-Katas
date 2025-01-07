@@ -3,12 +3,22 @@ using Xunit;
 
 public class BattleServiceShould
 {
+    Mock<INinja> ninja1 = new();
+    Mock<INinja> ninja2 = new();
+
     [Fact]
     public void Turn()
     {
         // Given
-        Mock<INinja> ninja1 = new();
-        Mock<INinja> ninja2 = new();
+        int damage = 5;
+        Mock<IWeapon> weapon1 = new();
+        Mock<IWeapon> weapon2 = new();
+        ninja1.Setup(n => n.Weapon).Returns(weapon1.Object);
+        ninja1.Setup(n => n.DealSomeDamage()).Returns(damage);
+        ninja1.Setup(n => n.ProtectYourself(ninja2.Object.Weapon));
+        ninja2.Setup(n => n.Weapon).Returns(weapon2.Object);
+        ninja2.Setup(n => n.DealSomeDamage()).Returns(damage);
+        ninja2.Setup(n => n.ProtectYourself(ninja1.Object.Weapon));
         IBattleService battleService = new BattleService();
 
         // When
@@ -24,8 +34,8 @@ public class BattleServiceShould
 
 public class BattleService : IBattleService
 {
-    public void Turn(INinja object1, INinja object2)
+    public void Turn(INinja ninja1, INinja ninja2)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

@@ -1,4 +1,4 @@
 public interface IBattleService
 {
-    void Turn(INinja object1, INinja object2);
+    void Turn(INinja ninja1, INinja ninja2);
 }

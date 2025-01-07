@@ -11,15 +11,10 @@ Ninja wars is a mini text game. Each player has a number of different attacks th
 ```cs
 public interface INinja
 {
-    void ProtectYourself(IWeapon weapon);
+    void ProtectYourself(int damage);
     int DealSomeDamage();
-    IWeapon Weapon { get; }
 }
 
-public interface IWeapon
-{
-    int Attack();
-}
 ```
 
 ### Battle Service

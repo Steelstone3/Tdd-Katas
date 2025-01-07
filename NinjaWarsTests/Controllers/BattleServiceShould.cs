@@ -1,25 +1,26 @@
+using System;
 using Moq;
 using Xunit;
+using Xunit.Sdk;
 
 public class BattleServiceShould
 {
-    Mock<INinja> ninja1 = new();
-    Mock<INinja> ninja2 = new();
+    IBattleService battleService = new BattleService();
 
     [Fact]
     public void Turn()
     {
         // Given
-        int damage = 5;
-        Mock<IWeapon> weapon1 = new();
-        Mock<IWeapon> weapon2 = new();
-        ninja1.Setup(n => n.Weapon).Returns(weapon1.Object);
-        ninja1.Setup(n => n.DealSomeDamage()).Returns(damage);
-        ninja1.Setup(n => n.ProtectYourself(ninja2.Object.Weapon));
-        ninja2.Setup(n => n.Weapon).Returns(weapon2.Object);
-        ninja2.Setup(n => n.DealSomeDamage()).Returns(damage);
-        ninja2.Setup(n => n.ProtectYourself(ninja1.Object.Weapon));
-        IBattleService battleService = new BattleService();
+        int damage1 = 5;
+        int damage2 = 15;
+
+        Mock<INinja> ninja1 = new();
+        ninja1.Setup(n => n.Attac()).Returns(damage1);
+        ninja1.Setup(n => n.Protec(damage2));
+
+        Mock<INinja> ninja2 = new();
+        ninja2.Setup(n => n.Attac()).Returns(damage2);
+        ninja2.Setup(n => n.Protec(damage1));
 
         // When
         battleService.Turn(ninja1.Object, ninja2.Object);
@@ -36,6 +37,6 @@ public class BattleService : IBattleService
 {
     public void Turn(INinja ninja1, INinja ninja2)
     {
-        
+        throw new NotImplementedException();
     }
 }

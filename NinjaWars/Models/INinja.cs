@@ -1,6 +1,5 @@
 public interface INinja
 {
-    void ProtectYourself(IWeapon weapon);
-    int DealSomeDamage();
-    IWeapon Weapon { get; }
+    void Protec(int damage);
+    int Attac();
 }

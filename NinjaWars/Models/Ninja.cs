@@ -6,6 +6,12 @@ public class Ninja : INinja
 
     public void Protec(uint damage)
     {
+        if(damage > Health)
+        {
+            Health = 0;
+            return;
+        }
+        
         Health -= damage;
     }
 }

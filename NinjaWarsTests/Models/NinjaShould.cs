@@ -26,7 +26,9 @@ public class NinjaShould
     [InlineData(15, 85)]
     [InlineData(99, 1)]
     [InlineData(100, 0)]
-    // [InlineData(101, 0)]
+    [InlineData(101, 0)]
+    [InlineData(105, 0)]
+    [InlineData(110, 0)]
     public void Protec(uint damage, uint expectedHealth)
     {
         // When

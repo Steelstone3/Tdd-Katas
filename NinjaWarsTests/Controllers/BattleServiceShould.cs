@@ -1,11 +1,9 @@
-using System;
 using Moq;
 using Xunit;
-using Xunit.Sdk;
 
 public class BattleServiceShould
 {
-    IBattleService battleService = new BattleService();
+    private readonly IBattleService battleService = new BattleService();
 
     [Fact]
     public void Turn()
@@ -30,17 +28,5 @@ public class BattleServiceShould
         ninja1.VerifyNoOtherCalls();
         ninja2.VerifyAll();
         ninja2.VerifyNoOtherCalls();
-    }
-}
-
-public class BattleService : IBattleService
-{
-    public void Turn(INinja ninja1, INinja ninja2)
-    {
-        int damage1 = ninja1.Attac();
-        ninja2.Protec(damage1);
-
-        int damage2 = ninja2.Attac();
-        ninja1.Protec(damage2);
     }
 }

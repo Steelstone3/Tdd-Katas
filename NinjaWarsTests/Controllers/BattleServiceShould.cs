@@ -37,6 +37,10 @@ public class BattleService : IBattleService
 {
     public void Turn(INinja ninja1, INinja ninja2)
     {
-        throw new NotImplementedException();
+        int damage1 = ninja1.Attac();
+        ninja2.Protec(damage1);
+
+        int damage2 = ninja2.Attac();
+        ninja1.Protec(damage2);
     }
 }

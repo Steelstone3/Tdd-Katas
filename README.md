@@ -18,7 +18,7 @@ public interface INinja
 
 public interface IWeapon
 {
-    int DealSomeDamage();
+    int Attack();
 }
 ```
 

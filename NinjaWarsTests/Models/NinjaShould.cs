@@ -17,13 +17,17 @@ public class NinjaShould
         Assert.Equal(expectedDamage, damage);
     }
 
-    // [Fact]
-    // public void Protec()
-    // {
-    //     // Given
+    [Fact]
+    public void Protec()
+    {
+        // Given
+        int damage = 0;
+        uint expectedHealth = 100;
 
-    //     // When
-
-    //     // Then
-    // }
+        // When
+        ninja.Protec(damage);
+        
+        // Then
+        Assert.Equal(expectedHealth, ninja.Health);
+    }
 }

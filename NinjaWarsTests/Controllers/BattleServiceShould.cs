@@ -9,8 +9,8 @@ public class BattleServiceShould
     public void Turn()
     {
         // Given
-        int damage1 = 5;
-        int damage2 = 15;
+        uint damage1 = 5;
+        uint damage2 = 15;
 
         Mock<INinja> ninja1 = new();
         ninja1.Setup(n => n.Attac()).Returns(damage1);

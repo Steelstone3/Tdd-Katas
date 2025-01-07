@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using Xunit;
 
 public class NinjaShould
@@ -8,25 +9,29 @@ public class NinjaShould
     public void Attac()
     {
         // Given
-        int expectedDamage = 5;
+        uint expectedDamage = 5;
 
         // When
-        int damage = ninja.Attac();
+        uint damage = ninja.Attac();
 
         // Then
         Assert.Equal(expectedDamage, damage);
     }
 
-    [Fact]
-    public void Protec()
+    [Theory]
+    [InlineData(0, 100)]
+    [InlineData(1, 99)]
+    [InlineData(5, 95)]
+    [InlineData(10, 90)]
+    [InlineData(15, 85)]
+    [InlineData(99, 1)]
+    [InlineData(100, 0)]
+    // [InlineData(101, 0)]
+    public void Protec(uint damage, uint expectedHealth)
     {
-        // Given
-        int damage = 0;
-        uint expectedHealth = 100;
-
         // When
         ninja.Protec(damage);
-        
+
         // Then
         Assert.Equal(expectedHealth, ninja.Health);
     }

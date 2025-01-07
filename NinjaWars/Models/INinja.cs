@@ -1,6 +1,6 @@
 public interface INinja
 {
-    void Protec(int damage);
-    int Attac();
+    void Protec(uint damage);
+    uint Attac();
     uint Health { get; }
 }

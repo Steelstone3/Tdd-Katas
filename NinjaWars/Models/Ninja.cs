@@ -1,9 +1,6 @@
 public class Ninja : INinja
 {
-    public int Attac()
-    {
-        throw new System.NotImplementedException();
-    }
+    public int Attac() => 5;
 
     public void Protec(int damage)
     {

@@ -1,15 +1,27 @@
-public class Shape
-{
-    public virtual double Area(double length, double width)
-    {
-        return length * width;
-    }
-}
 
-public class Triangle : Shape
-{
-    public override double Area(double length, double width)
-    {
-        return length * width / 2;
-    }
-}
+// public class Article {
+//     public void Publish() {
+
+//     }
+// }
+
+// public class NewsArticle : Article
+// {
+  
+// }
+
+// public class InternetArticle : Article
+// {
+//     public void Comments()
+//     {
+//         throw new System.NotImplementedException();
+//     }
+// }
+
+// public class Blog : Article
+// {
+//     public void Comments()
+//     {
+//         throw new System.NotImplementedException();
+//     }
+// }

@@ -14,6 +14,13 @@ namespace NinjaWars
             houseBuilder.WithWidth(10);
 
             var house = houseBuilder.Create();
+
+            IPublish[] publishers = new IPublish[] { new NewsArticle(), new Blog(), new InternetArticle() };
+            
+            foreach (var publisher in publishers)
+            {
+                publisher.Publish();
+            }
         }
     }
 }

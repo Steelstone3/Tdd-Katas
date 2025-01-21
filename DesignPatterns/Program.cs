@@ -6,6 +6,7 @@ namespace NinjaWars
     {
         internal static void Main()
         {
+            var vechile = new VechileFactory().Create();
         }
     }
 }

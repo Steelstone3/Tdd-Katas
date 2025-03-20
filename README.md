@@ -45,4 +45,4 @@ The following is an example of the application running
 
 > Enter Command: MMRMMLM
 >
-> X2:Y3:N
+> X 2:Y 3:N

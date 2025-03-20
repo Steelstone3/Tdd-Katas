@@ -4,14 +4,12 @@ impl Rover {
     pub fn execute(&mut self, commands: &str) -> String {
         for command in commands.chars() {
             match command {
-                'L' => {
-                    self.cardinal = match self.cardinal {
-                        'N' => 'W',
-                        'W' => 'S',
-                        'S' => 'E',
-                        'E' => 'N',
-                        _ => panic!(),
-                    };
+                'M' => match self.cardinal {
+                    'N' => self.y += 1,
+                    'E' => self.x += 1,
+                    'S' => self.y -= 1,
+                    'W' => self.x -= 1,
+                    _ => panic!(),
                 },
                 'R' => {
                     self.cardinal = match self.cardinal {
@@ -21,12 +19,21 @@ impl Rover {
                         'W' => 'N',
                         _ => panic!(),
                     };
-                },
-                _ => panic!()
+                }
+                'L' => {
+                    self.cardinal = match self.cardinal {
+                        'N' => 'W',
+                        'W' => 'S',
+                        'S' => 'E',
+                        'E' => 'N',
+                        _ => panic!(),
+                    };
+                }
+                _ => panic!(),
             }
         }
 
-        format!("0:0:{}", self.cardinal)
+        format!("X {}:Y {}:{}", self.x, self.y, self.cardinal)
     }
 }
 
@@ -36,13 +43,18 @@ mod rover_controller_should {
     use rstest::rstest;
 
     #[rstest]
-    #[case("", "0:0:N")]
-    #[case("R", "0:0:E")]
-    #[case("RR", "0:0:S")]
-    #[case("RRR", "0:0:W")]
-    #[case("L", "0:0:W")]
-    #[case("LL", "0:0:S")]
-    #[case("LLL", "0:0:E")]
+    #[case("", "X 0:Y 0:N")]
+    #[case("R", "X 0:Y 0:E")]
+    #[case("RR", "X 0:Y 0:S")]
+    #[case("RRR", "X 0:Y 0:W")]
+    #[case("L", "X 0:Y 0:W")]
+    #[case("LL", "X 0:Y 0:S")]
+    #[case("LLL", "X 0:Y 0:E")]
+    #[case("M", "X 0:Y 1:N")]
+    // #[case("LM", "X -1:Y 0:N")]
+    // #[case("RM", "X 1:Y 0:W")]
+    // #[case("RRM", "X -1:Y 0:S")]
+    // #[case("MMRMMLM", "X 2:Y 3:N")]
     fn execute_commands(#[case] commands: &str, #[case] expected_position: String) {
         let mut rover = Rover::default();
 

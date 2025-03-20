@@ -9,7 +9,7 @@ impl Rover {
                     'E' => self.x += 1,
                     'S' => self.y -= 1,
                     'W' => self.x -= 1,
-                    _ => panic!(),
+                    _ => {},
                 },
                 'R' => {
                     self.cardinal = match self.cardinal {
@@ -17,7 +17,7 @@ impl Rover {
                         'E' => 'S',
                         'S' => 'W',
                         'W' => 'N',
-                        _ => panic!(),
+                        _ => self.cardinal,
                     };
                 }
                 'L' => {
@@ -26,10 +26,10 @@ impl Rover {
                         'W' => 'S',
                         'S' => 'E',
                         'E' => 'N',
-                        _ => panic!(),
+                        _ => self.cardinal,
                     };
                 }
-                _ => panic!(),
+                _ => {},
             }
         }
 

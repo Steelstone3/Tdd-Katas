@@ -42,6 +42,17 @@ mod rover_controller_should {
     use crate::models::rover::Rover;
     use rstest::rstest;
 
+    #[test]
+    #[should_panic]
+    fn failed_to_execute_command() {
+        // given
+        let commands = "MRLX";
+        let mut rover = Rover::default();
+
+        // when
+        rover.execute(commands);
+    }
+
     #[rstest]
     #[case("", "X 0:Y 0:N")]
     #[case("R", "X 0:Y 0:E")]
@@ -51,15 +62,18 @@ mod rover_controller_should {
     #[case("LL", "X 0:Y 0:S")]
     #[case("LLL", "X 0:Y 0:E")]
     #[case("M", "X 0:Y 1:N")]
-    // #[case("LM", "X -1:Y 0:N")]
-    // #[case("RM", "X 1:Y 0:W")]
-    // #[case("RRM", "X -1:Y 0:S")]
-    // #[case("MMRMMLM", "X 2:Y 3:N")]
+    #[case("LM", "X -1:Y 0:W")]
+    #[case("RM", "X 1:Y 0:E")]
+    #[case("RRM", "X 0:Y -1:S")]
+    #[case("MMRMMLM", "X 2:Y 3:N")]
     fn execute_commands(#[case] commands: &str, #[case] expected_position: String) {
+        // given
         let mut rover = Rover::default();
 
+        // when
         let position = rover.execute(commands);
 
+        // then
         assert_eq!(expected_position, position)
     }
 }

@@ -2,7 +2,13 @@ use crate::models::rover::Rover;
 
 impl Rover {
     pub fn execute(&self, commands: &str) -> String {
-        String::from("0:0:N")
+        let cardinal = if commands == "L" {
+            'E'
+        } else {
+            'N'
+        };
+
+        format!("0:0:{}", cardinal)
     }
 }
 

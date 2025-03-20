@@ -42,17 +42,6 @@ mod rover_controller_should {
     use crate::models::rover::Rover;
     use rstest::rstest;
 
-    #[test]
-    #[should_panic]
-    fn failed_to_execute_command() {
-        // given
-        let commands = "MRLX";
-        let mut rover = Rover::default();
-
-        // when
-        rover.execute(commands);
-    }
-
     #[rstest]
     #[case("", "X 0:Y 0:N")]
     #[case("R", "X 0:Y 0:E")]

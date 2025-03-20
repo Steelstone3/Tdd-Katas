@@ -1,24 +1,46 @@
 [package]
-name = "bubbles_dive_planner_rust"
-version = "2.0.0"
+name = "mars-rover-kata-rust"
+version = "0.1.0"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
-homepage = "https://github.com/Steelstone3/Bubbles-Dive-Planner-Console"
-repository = "https://github.com/Steelstone3/Bubbles-Dive-Planner-Console"
+homepage = "https://github.com/Steelstone3/TDD-Katas"
+repository = "https://github.com/Steelstone3/TDD-Katas"
 license = "GPLv3"
 readme = "README.md"
 include = [
 
 ]
 
+[lint]
+deny = [
+    "clippy::unwrap_used",
+    "clippy::expect_used",
+    "clippy::panic",
+    "unused_must_use",
+]
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[workspace]
+resolver = "2"
 
 [profile.release]
 opt-level = 'z'
 lto = true
 codegen-units = 1
 
+[profile.dev]
+opt-level = 0
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[dev-dependencies]
+rstest = "0"
+
 [dependencies]
 inquire = "0.*"
-serde_json = { version = "1.*" }
-serde = { version = "1.*", features = ["derive"] }
+comfy-table = "7"
+
+# serde_json = { version = "1.*" }
+# serde = { version = "1.*", features = ["derive"] }

@@ -16,8 +16,6 @@ git reset --hard origin/mars-rover
 
 git reset --hard origin/mars-rover-rust
 
-git reset --hard origin/mulit-threaded-conways-game-of-life
-
 git reset --hard origin/mvvm-roman-numeral
 
 git reset --hard origin/ninja-wars
